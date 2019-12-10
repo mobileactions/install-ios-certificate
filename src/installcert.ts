@@ -6,6 +6,7 @@ import ioutils = require('./io-utils');
 import sign = require('./ios-signing');
 import fs = require('fs');
 import path = require('path');
+import { coerce } from 'semver';
 
 
 async function run() {
@@ -38,11 +39,11 @@ export async function installSigningCertTask() {
     let certPwd: string = core.getInput('certificate-password', inputRequired);
     const commonNameOverride: string = core.getInput('certSigningIdentity');
 
-    if (encodedSigningCertData) {
-        let tempCertFile = '/tmp/cert.base64';
-        let signingCertFile = '/tmp/cert.p12';
+    let tempCertFile = '/tmp/cert.base64';
+    let signingCertFile = '/tmp/cert.p12';
 
-        try {
+    try {
+        if (encodedSigningCertData) {
             fs.writeFile(tempCertFile, encodedSigningCertData, async (err) => {
                 if (err) {
                     core.error('could not write base64 signing cert file to /tmp');
@@ -111,15 +112,19 @@ export async function installSigningCertTask() {
                     core.exportVariable('APPLE_CERTIFICATE_KEYCHAIN', keychainPath);
                 }
             });
-        } catch (err) {
-            core.setFailed(err);
-        } finally {
-            // delete certificate from temp location after installing
-            io.rmRF(tempCertFile);
-            io.rmRF(signingCertFile);
-        }
+            
+        
+        } else {
+            core.error('Secret containing BASE64 of P12 cert not valid, or contents invalid.');
+            core.setFailed('Contents of P12 invalid.');
+        } 
+    } catch (err) {
+        core.setFailed(err);
+    } finally {
+        // delete certificate from temp location after installing
+        io.rmRF(tempCertFile);
+        io.rmRF(signingCertFile);
     }
 }
-
 
 run();
