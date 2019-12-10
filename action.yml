@@ -4,6 +4,19 @@ author: 'Steve Hall'
 inputs:
   encoded-certificate:        
     description: 'BASE64 encoded P12 certificate'
+    required: true
+  certificate-password:
+    description: 'Password of P12 Certificate'
+    required: true
+  keychain:
+    description: 'Must be temp, default, or custom. Recommend temp.'
+    required: true
+  customKeychainPath:
+    description: 'Required when using custom keychain.'
+    required: false
+  keychainPassword:
+    description: 'Required when using default or custom keychain.'
+    required: false
 runs:
   using: 'node12'
   main: 'lib/installcert.js'
