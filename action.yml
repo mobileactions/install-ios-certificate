@@ -1,0 +1,9 @@
+name: 'Install iOS Certificate'
+description: 'Install iOS Certificate'
+author: 'Steve Hall'
+inputs:
+  encoded-certificate:        
+    description: 'BASE64 encoded P12 certificate'
+runs:
+  using: 'node12'
+  main: 'lib/installcert.js'
