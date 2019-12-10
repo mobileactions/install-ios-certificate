@@ -6,7 +6,7 @@ Use this action to install an Apple certificate during your iOS build. The certi
 
 This action requires that your certificate be BASE64 encoded and placed in a secret in your project's GitHub repository.
 
-To encode your profile, export your certificate as a P12 file.
+To encode your profile, export your certificate as a P12 file, then use the `base64` command:
 
 ```
 base64 -i YOUR_CERT.p12 -o CERT_FILENAME.base64
