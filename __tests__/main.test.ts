@@ -8,10 +8,10 @@ test('Install signing certificate', async() => {
   fs.readFile(path.join(__dirname, "testcert.p12.base64"), "utf8", async (err, data) => {
 
     //Simulates file being stored as a GitHub secret
-    core.exportVariable('INPUT_P12_CERTIFICATE', data);
+    core.exportVariable('INPUT_ENCODED-CERTIFICATE', data);
 
     core.exportVariable('INPUT_KEYCHAIN', 'temp');
-    core.exportVariable('INPUT_CERTPWD', 'theshakes');
+    core.exportVariable('INPUT_CERTIFICATE-PASSWORD', 'theshakes');
     
     await ios.installSigningCertTask(); 
 
