@@ -35,7 +35,7 @@ export async function installSigningCertTask() {
     inputRequired.required = true;
     let keychain: string = core.getInput('keychain', inputRequired);
     let keychainPwd: string = core.getInput('keychainPassword');
-    let certPwd: string = core.getInput('certPwd', inputRequired);
+    let certPwd: string = core.getInput('certificate-password', inputRequired);
     const commonNameOverride: string = core.getInput('certSigningIdentity');
 
     if (encodedSigningCertData) {
