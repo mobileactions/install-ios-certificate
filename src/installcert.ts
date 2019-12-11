@@ -42,6 +42,7 @@ export async function installSigningCertTask() {
     let tempCertFile = '/tmp/cert.base64';
     let signingCertFile = '/tmp/cert.p12';
 
+
     try {
         if (encodedSigningCertData) {
             fs.writeFile(tempCertFile, encodedSigningCertData, async (err) => {
@@ -110,6 +111,10 @@ export async function installSigningCertTask() {
                     // If there are multiple InstallAppleCertificate tasks, the last one wins.
                     core.exportVariable('APPLE_CERTIFICATE_SIGNING_IDENTITY', commonName);
                     core.exportVariable('APPLE_CERTIFICATE_KEYCHAIN', keychainPath);
+
+                    // delete certificate from temp location after installing
+                    io.rmRF(tempCertFile);
+                    io.rmRF(signingCertFile);
                 }
             });
             
@@ -121,9 +126,7 @@ export async function installSigningCertTask() {
     } catch (err) {
         core.setFailed(err);
     } finally {
-        // delete certificate from temp location after installing
-        io.rmRF(tempCertFile);
-        io.rmRF(signingCertFile);
+        
     }
 }
 
