@@ -1,4 +1,4 @@
-import sign = require('./ios-signing');
+import sign = require('@mobileactions/ios-common');
 import os = require('os');
 import core = require('@actions/core');
 

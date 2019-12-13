@@ -24,10 +24,10 @@
     "@actions/io": "^1.0.0",
     "@actions/exec": "^1.0.0",
     "@types/minimatch": "^3.0.3",
-    "@types/q": "^1.5.2",
     "@types/semver": "^6.2.0",
     "azure-devops-node-api": "^9.0.1",
-    "q": "^1.5.1"
+    "@mobileactions/ios-common": "^1.0.7",
+    "@mobileactions/actions-common": "^1.0.10"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
