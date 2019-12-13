@@ -1,5 +1,9 @@
 __tests__/runner/*
 
+<<<<<<< HEAD
+=======
+# comment out in distribution branches
+>>>>>>> 73d83be03ba16964034e98568e30a457220ad431
 node_modules/
 lib/
 

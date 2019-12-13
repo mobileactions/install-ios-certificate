@@ -2,8 +2,13 @@ import os = require('os');
 import core = require('@actions/core');
 import io = require('@actions/io');
 const exec = require('@actions/exec');
+<<<<<<< HEAD
 import ioutils = require('@mobileactions/actions-common');
 import sign = require('@mobileactions/ios-common');
+=======
+import ioutils = require('./io-utils');
+import sign = require('./ios-signing');
+>>>>>>> 73d83be03ba16964034e98568e30a457220ad431
 import fs = require('fs');
 import path = require('path');
 import { coerce } from 'semver';
