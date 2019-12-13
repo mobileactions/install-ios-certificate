@@ -5,8 +5,13 @@ on: release
 jobs:
   release:
     name: Release GitHub Action Install iOS Certificate
-    runs-on: [macOS-latest]
+    runs-on: [macos-latest]
     steps:
+      - name: Setup npm config
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken=$NPM_AUTH_TOKEN
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release GitHub Actions
         uses: technote-space/release-github-actions@v2
         with:
