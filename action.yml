@@ -22,3 +22,6 @@ runs:
   main: 'lib/installcert.js'
   post: 'lib/postinstallcert.js'
   post-if: 'success()'
+branding:
+  icon: 'smartphone'
+  color: 'green'
