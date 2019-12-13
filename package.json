@@ -1,9 +1,9 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "installcert",
+  "version": "1.0.4",
   "private": true,
-  "description": "Installs Provisioning Profile from GitHub secret.",
-  "main": "lib/installlprovprofile.js",
+  "description": "Installs P12 Certificate from GitHub secret.",
+  "main": "lib/installcert.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"
