@@ -1,4 +1,6 @@
 # Install iOS Signing Certificate
+![](https://github.com/mobileactions/install-ios-certificate/workflows/Release/badge.svg)
+
 
 Use this action to install an Apple certificate during your iOS build. The certificate is automatically removed post-build.
 
