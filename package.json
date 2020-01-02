@@ -27,7 +27,8 @@
     "@types/semver": "^6.2.0",
     "azure-devops-node-api": "^9.0.1",
     "@mobileactions/ios-common": "^1.0.7",
-    "@mobileactions/actions-common": "^1.0.10"
+    "@mobileactions/actions-common": "^1.0.10",
+    "handlebars": ">=4.3.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
